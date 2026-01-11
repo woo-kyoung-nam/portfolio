@@ -108,7 +108,7 @@
     }
     .hero-grid{
       display:grid;
-      grid-template-columns: 1.3fr .7fr;
+      grid-template-columns: .7fr 1.3fr; /* ✅ 프로필(왼쪽) 작게, 히어로(오른쪽) 크게 */
       gap: 24px;
       align-items: stretch;
     }
@@ -381,24 +381,7 @@
     <!-- Hero -->
     <section class="hero">
       <div class="hero-grid">
-        <div class="card hero-card">
-          <div class="kicker">🧩 Backend / Full-stack Developer · <span style="color:var(--brand-2);font-weight:800">Available</span></div>
-          <h1>
-            사용자 경험을 끝까지 책임지는<br/>
-            개발자 포트폴리오
-          </h1>
-          <p class="lead">
-            Spring Boot + Vue 기반으로 서비스를 설계/구현하며, 데이터 무결성과 운영 안정성을 끝까지 챙기는 개발자입니다.
-          </p>
-
-          <div class="cta">
-            <a class="btn primary" href="#projects"><span class="dot"></span>프로젝트 보기</a>
-            <a class="btn" href="https://github.com/woo-kyoung-nam" target="_blank" rel="noreferrer">GitHub</a>
-            <a class="btn" href="./resume.pdf" target="_blank" rel="noreferrer">Resume(PDF)</a>
-          </div>
-        </div>
-
-        <aside class="card profile-card" id="about">
+        <div class="card profile-card" id="about">
           <div style="display:flex;gap:14px;align-items:center;">
             <img class="avatar" src="./이력서용.jpg" alt="우경 남 프로필 사진" />
             <div>
@@ -420,7 +403,24 @@
             <span class="chip">Docker</span>
             <span class="chip">CI/CD</span>
           </div>
+        </div>
+        <aside class="card hero-card">
+          <div class="kicker">🧩 Backend / Full-stack Developer · <span style="color:var(--brand-2);font-weight:800">Available</span></div>
+          <h1>
+            사용자 경험을 끝까지 책임지는<br/>
+            개발자 포트폴리오
+          </h1>
+          <p class="lead">
+            Spring Boot + Vue 기반으로 서비스를 설계/구현하며, 데이터 무결성과 운영 안정성을 끝까지 챙기는 개발자입니다.
+          </p>
+
+          <div class="cta">
+            <a class="btn primary" href="#projects"><span class="dot"></span>프로젝트 보기</a>
+            <a class="btn" href="https://github.com/woo-kyoung-nam" target="_blank" rel="noreferrer">GitHub</a>
+            <a class="btn" href="./resume.pdf" target="_blank" rel="noreferrer">Resume(PDF)</a>
+          </div>
         </aside>
+
       </div>
     </section>
 
