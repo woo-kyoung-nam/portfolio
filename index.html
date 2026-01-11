@@ -335,30 +335,6 @@
       font-size: 13px;
     }
 
-    /* =====================
-       Contact
-    ====================== */
-    .contact{
-      padding: 18px;
-      display:grid;
-      gap: 12px;
-    }
-    .contact .row{
-      display:flex;
-      gap: 10px;
-      flex-wrap:wrap;
-      align-items:center;
-    }
-    .input{
-      flex: 1 1 240px;
-      border-radius: 14px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,0.03);
-      padding: 10px 12px;
-      color: var(--text);
-    }
-    textarea.input{ min-height: 120px; resize: vertical; }
-
     footer{
       padding: 26px 0 40px;
       color: var(--muted);
@@ -393,7 +369,6 @@
           <a href="#projects">Projects</a>
           <a href="#skills">Skills</a>
           <a href="#timeline">Timeline</a>
-          <a href="#contact">Contact</a>
         </nav>
       </div>
     </div>
@@ -415,9 +390,7 @@
 
           <div class="cta">
             <a class="btn primary" href="#projects"><span class="dot"></span>프로젝트 보기</a>
-            <!-- TODO: 본인 GitHub 주소로 변경 -->
             <a class="btn" href="https://github.com/woo-kyoung-nam" target="_blank" rel="noreferrer">GitHub</a>
-            <!-- resume.pdf를 레포 루트에 업로드하면 바로 동작 -->
             <a class="btn" href="./resume.pdf" target="_blank" rel="noreferrer">Resume(PDF)</a>
           </div>
         </div>
@@ -434,9 +407,9 @@
           <div class="meta">
             <div><b>주요 스택</b> · Spring Boot / JPA / MyBatis / Vue</div>
             <div><b>관심사</b> · 아키텍처, 성능, 협업, 운영</div>
-            <!-- TODO: 본인 이메일로 변경 -->
-            <div><b>이메일</b> · <a href="mailto:dnrud6911@naver.com">dnrud6911@naver.com</a></div>          
+            <div><b>이메일</b> · <a href="mailto:dnrud6911@naver.com">dnrud6911@naver.com</a></div>
           </div>
+
           <div class="chips" aria-label="highlights">
             <span class="chip">REST API</span>
             <span class="chip">JWT / Security</span>
@@ -474,11 +447,8 @@
             <li>Docker 기반 배포 환경 구성</li>
           </ul>
           <div class="links">
-            <!-- TODO: CalMate 레포/데모/문서 링크로 바꿔줘 -->
             <a class="link" href="https://github.com/woo-kyoung-nam" target="_blank" rel="noreferrer">GitHub</a>
-            <!-- 데모가 없으면 삭제해도 됨 -->
             <a class="link" href="#" target="_blank" rel="noreferrer">Demo</a>
-            <!-- 노션/블로그/README 등 정리 글 링크 -->
             <a class="link" href="#" target="_blank" rel="noreferrer">Write-up</a>
           </div>
         </article>
@@ -549,38 +519,6 @@
             </div>
           </div>
         </div>
-      </div>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact">
-      <div class="section-head">
-        <div>
-          <h2>Contact</h2>
-          <p>메일/링크만 둬도 충분. 폼은 “mailto”로 간단히.</p>
-        </div>
-      </div>
-
-      <div class="card contact">
-        <div class="row">
-          <a class="btn" href="mailto:dnrud6911@naver.com">📩 dnrud6911@naver.com</a>
-          <a class="btn" href="https://github.com/woo-kyoung-nam" target="_blank" rel="noreferrer">🐙 GitHub</a>
-          <a class="btn" href="https://www.linkedin.com/" target="_blank" rel="noreferrer">💼 LinkedIn</a>
-        </div>
-
-        <form action="mailto:dnrud6911@naver.com" method="post" enctype="text/plain">
-          <div class="row">
-            <input class="input" name="name" placeholder="이름" />
-            <input class="input" name="email" placeholder="이메일" />
-          </div>
-          <div class="row">
-            <textarea class="input" name="message" placeholder="메시지"></textarea>
-          </div>
-          <div class="row">
-            <button class="btn primary" type="submit"><span class="dot"></span>보내기</button>
-            <span style="color:var(--muted);font-size:12px;">* 로컬 메일 클라이언트가 열립니다</span>
-          </div>
-        </form>
       </div>
     </section>
 
