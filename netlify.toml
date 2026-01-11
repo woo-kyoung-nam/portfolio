@@ -1,0 +1,15 @@
+[build]
+  publish = "."
+  command = ""
+
+# 루트(/)로 접속해도 index.html을 반환 (주소창은 / 그대로 유지)
+[[redirects]]
+  from = "/"
+  to = "/index.html"
+  status = 200
+
+# (선택) 혹시 /index.html로 들어와도 /로 보여주고 싶으면 아래 주석 해제
+# [[redirects]]
+#   from = "/index.html"
+#   to = "/"
+#   status = 301
