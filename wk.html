@@ -1,0 +1,603 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>우경 남 | Portfolio</title>
+  <meta name="description" content="웹 개발자 포트폴리오" />
+
+  <!-- OG (공유 미리보기) -->
+  <meta property="og:title" content="우경 남 | Portfolio" />
+  <meta property="og:description" content="웹 개발자 포트폴리오" />
+  <meta property="og:type" content="website" />
+
+  <style>
+    /* =====================
+       Base / Theme
+    ====================== */
+    :root{
+      --bg: #0b0f19;
+      --panel: rgba(255,255,255,0.06);
+      --panel-2: rgba(255,255,255,0.09);
+      --text: #e8eefc;
+      --muted: rgba(232,238,252,0.72);
+      --line: rgba(232,238,252,0.12);
+      --brand: #7c5cff;
+      --brand-2: #2dd4bf;
+      --shadow: 0 16px 50px rgba(0,0,0,.35);
+      --radius: 18px;
+      --max: 1100px;
+    }
+
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Noto Sans KR", Arial, "Apple SD Gothic Neo", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(1000px 600px at 10% -10%, rgba(124,92,255,.35), transparent 60%),
+        radial-gradient(900px 600px at 100% 10%, rgba(45,212,191,.25), transparent 55%),
+        radial-gradient(700px 500px at 30% 110%, rgba(124,92,255,.18), transparent 55%),
+        var(--bg);
+      line-height: 1.6;
+      overflow-x:hidden;
+    }
+
+    a{ color: inherit; text-decoration:none; }
+    img{ max-width:100%; display:block; }
+    .container{ width:min(var(--max), calc(100% - 40px)); margin:0 auto; }
+
+    /* =====================
+       Header
+    ====================== */
+    header{
+      position: sticky;
+      top:0;
+      z-index:50;
+      backdrop-filter: blur(10px);
+      background: rgba(11,15,25,.55);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      padding: 14px 0;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-weight:800;
+      letter-spacing: .2px;
+    }
+    .logo{
+      width:34px; height:34px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--brand), var(--brand-2));
+      box-shadow: 0 10px 30px rgba(124,92,255,.25);
+    }
+    .nav-links{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+    .nav-links a{
+      padding: 8px 10px;
+      border-radius: 999px;
+      color: var(--muted);
+      border: 1px solid transparent;
+    }
+    .nav-links a:hover{
+      color: var(--text);
+      border-color: var(--line);
+      background: rgba(255,255,255,0.04);
+    }
+
+    /* =====================
+       Hero
+    ====================== */
+    .hero{
+      padding: 48px 0 26px;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.3fr .7fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+    .card{
+      border: 1px solid var(--line);
+      background: var(--panel);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .hero-card{
+      padding: 28px;
+      position: relative;
+      overflow:hidden;
+    }
+    .hero-card::before{
+      content:"";
+      position:absolute; inset:-2px;
+      background: radial-gradient(400px 200px at 20% 0%, rgba(124,92,255,.35), transparent 60%),
+                  radial-gradient(500px 260px at 110% 30%, rgba(45,212,191,.25), transparent 65%);
+      opacity:.7;
+      pointer-events:none;
+    }
+    .hero-card > *{ position:relative; }
+    .kicker{
+      display:inline-flex;
+      gap:8px;
+      align-items:center;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 13px;
+      background: rgba(255,255,255,0.03);
+      margin-bottom: 14px;
+    }
+    h1{
+      margin: 0 0 10px;
+      font-size: clamp(28px, 3.2vw, 44px);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+    }
+    .lead{
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 16px;
+      max-width: 62ch;
+    }
+    .cta{
+      display:flex; gap:10px; flex-wrap:wrap;
+      margin-top: 16px;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding: 10px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.03);
+      color: var(--text);
+      font-weight: 700;
+      cursor:pointer;
+      transition: transform .12s ease, background .12s ease;
+      user-select:none;
+    }
+    .btn:hover{ transform: translateY(-1px); background: rgba(255,255,255,0.06); }
+    .btn.primary{
+      border-color: rgba(124,92,255,.55);
+      background: linear-gradient(135deg, rgba(124,92,255,.35), rgba(45,212,191,.18));
+    }
+    .btn .dot{
+      width:10px; height:10px; border-radius: 50%;
+      background: var(--brand-2);
+      box-shadow: 0 0 0 6px rgba(45,212,191,.12);
+    }
+
+    .profile-card{
+      padding: 22px;
+      display:flex;
+      flex-direction:column;
+      gap: 12px;
+    }
+    .avatar{
+      width: 88px; height: 88px;
+      border-radius: 26px;
+      background: linear-gradient(135deg, rgba(124,92,255,.6), rgba(45,212,191,.45));
+      border: 1px solid var(--line);
+    }
+    .meta{
+      display:grid;
+      gap: 8px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .meta b{ color: var(--text); font-weight:800; }
+    .chips{
+      display:flex; flex-wrap:wrap; gap:8px;
+      margin-top: 6px;
+    }
+    .chip{
+      font-size: 12px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.03);
+      color: var(--muted);
+    }
+
+    /* =====================
+       Sections
+    ====================== */
+    section{ padding: 22px 0; }
+    .section-head{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:12px;
+      margin-bottom: 14px;
+    }
+    .section-head h2{
+      margin:0;
+      font-size: 18px;
+      letter-spacing:-.01em;
+    }
+    .section-head p{
+      margin:0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* =====================
+       Projects
+    ====================== */
+    .grid{
+      display:grid;
+      gap: 14px;
+      grid-template-columns: repeat(12, 1fr);
+    }
+    .project{
+      grid-column: span 6;
+      padding: 18px;
+      position: relative;
+      overflow:hidden;
+    }
+    .project:hover{
+      background: rgba(255,255,255,0.07);
+      border-color: rgba(255,255,255,0.18);
+    }
+    .project .tagrow{
+      display:flex; gap:8px; flex-wrap:wrap;
+      margin-bottom: 10px;
+    }
+    .tag{
+      font-size: 12px;
+      padding: 5px 9px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.03);
+      color: var(--muted);
+    }
+    .project h3{
+      margin: 6px 0 8px;
+      font-size: 16px;
+    }
+    .project p{
+      margin: 0 0 12px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .project .links{
+      display:flex; gap:10px; flex-wrap:wrap;
+      margin-top: 8px;
+    }
+    .link{
+      font-size: 13px;
+      color: var(--text);
+      padding: 7px 10px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.03);
+    }
+    .link:hover{ background: rgba(255,255,255,0.06); }
+
+    /* =====================
+       Skills / Timeline
+    ====================== */
+    .cols{
+      display:grid;
+      gap: 14px;
+      grid-template-columns: 1fr 1fr;
+    }
+    .box{ padding: 18px; }
+    .skill-list{
+      display:flex; flex-wrap:wrap; gap: 8px;
+      margin-top: 10px;
+    }
+    .skill{
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.03);
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .timeline{
+      display:grid;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .t-item{
+      padding: 12px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.03);
+    }
+    .t-item .when{
+      color: var(--muted);
+      font-size: 12px;
+      margin-bottom: 6px;
+    }
+    .t-item .what{
+      font-weight: 800;
+      margin-bottom: 4px;
+    }
+    .t-item .desc{
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* =====================
+       Contact
+    ====================== */
+    .contact{
+      padding: 18px;
+      display:grid;
+      gap: 12px;
+    }
+    .contact .row{
+      display:flex;
+      gap: 10px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+    .input{
+      flex: 1 1 240px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.03);
+      padding: 10px 12px;
+      color: var(--text);
+    }
+    textarea.input{ min-height: 120px; resize: vertical; }
+
+    footer{
+      padding: 26px 0 40px;
+      color: var(--muted);
+      text-align:center;
+      border-top: 1px solid var(--line);
+      margin-top: 20px;
+    }
+
+    /* =====================
+       Responsive
+    ====================== */
+    @media (max-width: 920px){
+      .hero-grid{ grid-template-columns: 1fr; }
+      .project{ grid-column: span 12; }
+      .cols{ grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <div class="nav">
+        <a class="brand" href="#top" aria-label="home">
+          <div class="logo"></div>
+          <span>우경 남</span>
+        </a>
+
+        <nav class="nav-links" aria-label="primary">
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#skills">Skills</a>
+          <a href="#timeline">Timeline</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main id="top" class="container">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-grid">
+        <div class="card hero-card">
+          <div class="kicker">🧩 Backend / Full-stack Developer · <span style="color:var(--brand-2);font-weight:800">Available</span></div>
+          <h1>
+            사용자 경험을 끝까지 책임지는<br/>
+            개발자 포트폴리오
+          </h1>
+          <p class="lead">
+            여기에 한 줄 소개를 넣어줘. 예) “Spring Boot + Vue 기반으로 서비스를 설계/구현하고, 데이터 무결성과 운영 안정성을 중요하게 생각합니다.”
+          </p>
+
+          <div class="cta">
+            <a class="btn primary" href="#projects"><span class="dot"></span>프로젝트 보기</a>
+            <a class="btn" href="https://github.com/" target="_blank" rel="noreferrer">GitHub</a>
+            <a class="btn" href="#" target="_blank" rel="noreferrer">Resume(PDF)</a>
+          </div>
+        </div>
+
+        <aside class="card profile-card" id="about">
+          <div style="display:flex;gap:14px;align-items:center;">
+            <div class="avatar" aria-hidden="true"></div>
+            <div>
+              <div style="font-weight:900;font-size:18px;">우경 남</div>
+              <div style="color:var(--muted);font-size:13px;">Seoul · Web Developer</div>
+            </div>
+          </div>
+
+          <div class="meta">
+            <div><b>주요 스택</b> · Spring Boot / JPA / MyBatis / Vue</div>
+            <div><b>관심사</b> · 아키텍처, 성능, 협업, 운영</div>
+            <div><b>이메일</b> · <a href="mailto:you@example.com">you@example.com</a></div>
+          </div>
+
+          <div class="chips" aria-label="highlights">
+            <span class="chip">REST API</span>
+            <span class="chip">JWT / Security</span>
+            <span class="chip">DB 설계</span>
+            <span class="chip">Docker</span>
+            <span class="chip">CI/CD</span>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+      <div class="section-head">
+        <div>
+          <h2>Projects</h2>
+          <p>대표 프로젝트 2~4개만 뽑아서 “문제 → 해결 → 성과” 중심으로 적는 게 좋아.</p>
+        </div>
+      </div>
+
+      <div class="grid">
+        <article class="card project">
+          <div class="tagrow">
+            <span class="tag">Team</span>
+            <span class="tag">Spring Boot</span>
+            <span class="tag">Vue</span>
+          </div>
+          <h3>CalMate (헬스 플랫폼)</h3>
+          <p>
+            커뮤니티/식단/운동/이벤트 모듈을 가진 서비스. JPA + MyBatis 혼합 아키텍처로 조회/명령 분리, JWT 인증을 적용.
+          </p>
+          <ul style="margin:0;padding-left:18px;color:var(--muted);font-size:13px;">
+            <li>게시글/댓글/좋아요/이미지 업로드 및 삭제 cascade 설계</li>
+            <li>Spring Security + JWT + CORS 정책 구성</li>
+            <li>Docker 기반 배포 환경 구성</li>
+          </ul>
+          <div class="links">
+            <a class="link" href="#" target="_blank" rel="noreferrer">GitHub</a>
+            <a class="link" href="#" target="_blank" rel="noreferrer">Demo</a>
+            <a class="link" href="#" target="_blank" rel="noreferrer">Write-up</a>
+          </div>
+        </article>
+
+        <article class="card project">
+          <div class="tagrow">
+            <span class="tag">Personal</span>
+            <span class="tag">API</span>
+            <span class="tag">DB</span>
+          </div>
+          <h3>프로젝트 이름 2</h3>
+          <p>
+            이 프로젝트의 핵심 문제/해결을 2~3줄로 작성. 예) “느린 조회 성능을 인덱싱/쿼리 튜닝으로 개선해 응답 시간을 단축”
+          </p>
+          <ul style="margin:0;padding-left:18px;color:var(--muted);font-size:13px;">
+            <li>핵심 구현 1</li>
+            <li>핵심 구현 2</li>
+            <li>성과(숫자) 1</li>
+          </ul>
+          <div class="links">
+            <a class="link" href="#" target="_blank" rel="noreferrer">GitHub</a>
+            <a class="link" href="#" target="_blank" rel="noreferrer">Demo</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Skills + Timeline -->
+    <section id="skills">
+      <div class="section-head">
+        <div>
+          <h2>Skills & Experience</h2>
+          <p>스택은 “할 줄 앎”보다 “해결해본 것” 중심으로.</p>
+        </div>
+      </div>
+
+      <div class="cols">
+        <div class="card box">
+          <h3 style="margin:0;font-size:16px;">Skills</h3>
+          <div class="skill-list">
+            <span class="skill">Java / Spring Boot</span>
+            <span class="skill">Spring Security / JWT</span>
+            <span class="skill">JPA / MyBatis</span>
+            <span class="skill">MariaDB / MySQL</span>
+            <span class="skill">Vue 3 / Vite</span>
+            <span class="skill">Docker</span>
+            <span class="skill">Git / GitHub</span>
+            <span class="skill">CI/CD (Jenkins)</span>
+          </div>
+
+          <div style="margin-top:12px;color:var(--muted);font-size:13px;">
+            ✅ “이 스택으로 무엇을 만들었는지”를 프로젝트 카드에 연결해줘.
+          </div>
+        </div>
+
+        <div class="card box" id="timeline">
+          <h3 style="margin:0;font-size:16px;">Timeline</h3>
+          <div class="timeline">
+            <div class="t-item">
+              <div class="when">2025.XX ~ 2026.XX</div>
+              <div class="what">팀 프로젝트 · CalMate 개발</div>
+              <div class="desc">커뮤니티/이벤트/인증 등 기능 개발 및 운영 안정성 개선</div>
+            </div>
+            <div class="t-item">
+              <div class="when">2025.XX</div>
+              <div class="what">학습/활동</div>
+              <div class="desc">예) 알고리즘/CS/클린아키텍처/테스트 자동화 등</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <div class="section-head">
+        <div>
+          <h2>Contact</h2>
+          <p>메일/링크만 둬도 충분. 폼은 “mailto”로 간단히.</p>
+        </div>
+      </div>
+
+      <div class="card contact">
+        <div class="row">
+          <a class="btn" href="mailto:you@example.com">📩 you@example.com</a>
+          <a class="btn" href="https://github.com/" target="_blank" rel="noreferrer">🐙 GitHub</a>
+          <a class="btn" href="https://www.linkedin.com/" target="_blank" rel="noreferrer">💼 LinkedIn</a>
+        </div>
+
+        <form action="mailto:you@example.com" method="post" enctype="text/plain">
+          <div class="row">
+            <input class="input" name="name" placeholder="이름" />
+            <input class="input" name="email" placeholder="이메일" />
+          </div>
+          <div class="row">
+            <textarea class="input" name="message" placeholder="메시지"></textarea>
+          </div>
+          <div class="row">
+            <button class="btn primary" type="submit"><span class="dot"></span>보내기</button>
+            <span style="color:var(--muted);font-size:12px;">* 로컬 메일 클라이언트가 열립니다</span>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="year"></span> 우경 남 · Built with HTML/CSS
+    </footer>
+  </main>
+
+  <script>
+    // footer year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // smooth scroll (optional)
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener("click", (e) => {
+        const id = a.getAttribute("href");
+        const el = document.querySelector(id);
+        if(!el) return;
+        e.preventDefault();
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    });
+  </script>
+</body>
+</html>
